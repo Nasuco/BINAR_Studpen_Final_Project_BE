@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+/**
+ * @file Run express.js
+ * @author BINAR_C7
+ */
+
+const app = require("../app")
+const http = require('http');
+const server = http.createServer(app)
+const setTz = require('set-tz');
+
+setTz('Asia/Jakarta')
+
+const dotenv = require('dotenv')
+
+dotenv.config();
+
+const port = process.env.PORT;
+
+console.log(new Date("2022-12-01T21:07"));
+
+server.listen(port, () => {
+  console.log(`Listening on http://localhost:${port}`)
+})
